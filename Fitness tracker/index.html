@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Health & Fitness Tracker</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+    <h1>Ultimate Health & Fitness Tracker</h1>
+    <p>Track BMI, Diet, Exercise, Water, Calories, and Daily Logs!</p>
+</header>
+
+<main>
+    <div class="tabs">
+        <button class="tab-btn active" data-target="bmiSection">BMI Calculator</button>
+        <button class="tab-btn" data-target="dietSection">Diet Tips</button>
+        <button class="tab-btn" data-target="exerciseSection">Exercise Tips</button>
+        <button class="tab-btn" data-target="waterSection">Water Tracker</button>
+        <button class="tab-btn" data-target="caloriesSection">Calories Tracker</button>
+        <button class="tab-btn" data-target="dailyLogSection">Daily Log</button>
+    </div>
+
+    <!-- BMI Section -->
+    <section id="bmiSection" class="tab-section active">
+        <form id="bmiForm" class="tracker-form">
+            <h2>Calculate Your BMI</h2>
+            <div class="input-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight" placeholder="Enter your weight" required>
+            </div>
+            <div class="input-group">
+                <label for="height">Height (cm)</label>
+                <input type="number" id="height" placeholder="Enter your height" required>
+            </div>
+            <div class="input-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" placeholder="Enter your age" required>
+            </div>
+            <button type="submit" class="btn">Calculate BMI</button>
+        </form>
+        <div id="bmiResult" class="result"></div>
+        <canvas id="bmiChart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Diet Section -->
+    <section id="dietSection" class="tab-section">
+        <h2>Diet Suggestions</h2>
+        <p id="dietTips">Calculate your BMI first to see personalized diet suggestions.</p>
+    </section>
+
+    <!-- Exercise Section -->
+    <section id="exerciseSection" class="tab-section">
+        <h2>Exercise Recommendations</h2>
+        <p id="exerciseTips">Calculate your BMI first to see exercise recommendations.</p>
+    </section>
+
+    <!-- Water Intake Section -->
+    <section id="waterSection" class="tab-section">
+        <h2>Water Intake Tracker</h2>
+        <input type="range" id="waterRange" min="0" max="8" value="0">
+        <span id="waterValue">0 / 8 glasses</span>
+        <div class="progress-container">
+            <div id="waterProgress" class="progress-bar"></div>
+        </div>
+        <p>Recommended: 8 glasses per day</p>
+    </section>
+
+    <!-- Calories Tracker -->
+    <section id="caloriesSection" class="tab-section">
+        <h2>Calories Tracker</h2>
+        <div class="input-group">
+            <label for="meal">Meal Description</label>
+            <input type="text" id="meal" placeholder="e.g. 2 eggs, toast, coffee">
+        </div>
+        <div class="input-group">
+            <label for="calories">Calories</label>
+            <input type="number" id="calories" placeholder="Calories" required>
+        </div>
+        <button id="addCalories" class="btn">Add Meal</button>
+        <ul id="caloriesList"></ul>
+        <p>Total Calories Today: <span id="totalCalories">0</span> kcal</p>
+    </section>
+
+    <!-- Daily Log Section -->
+    <section id="dailyLogSection" class="tab-section">
+        <h2>Daily Fitness Log</h2>
+        <div class="input-group">
+            <label for="logDate">Date</label>
+            <input type="date" id="logDate" required>
+        </div>
+        <div class="input-group">
+            <label for="logWeight">Weight (kg)</label>
+            <input type="number" id="logWeight" required>
+        </div>
+        <div class="input-group">
+            <label for="logWater">Water Intake (glasses)</label>
+            <input type="number" id="logWater" min="0" max="8" required>
+        </div>
+        <div class="input-group">
+            <label for="logExercise">Exercise</label>
+            <input type="text" id="logExercise" placeholder="e.g. Jogging 30 mins">
+        </div>
+        <button id="addLog" class="btn">Add Log</button>
+        <ul id="dailyLogsList"></ul>
+    </section>
+</main>
+
+<footer>
+<p>&copy; 2025 Ultimate Health & Fitness Tracker. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
